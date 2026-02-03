@@ -1,9 +1,12 @@
 (function(){
 
-const side = window.mourningRibbonSide || "right";
-const text = window.mourningRibbonText || "به یاد درگذشتگان دی ۱۴۰۴";
+const cfg=window.dey1404||{};
+const side=cfg.side||"right";
+const text=cfg.text||"به یاد درگذشتگان دی ۱۴۰۴";
+const linkEnabled=cfg.link!==false;
+const linkUrl="https://m4tinbeigi-official.github.io/dey1404/";
 
-if(document.getElementById("dey1404-root")) return;
+if(document.getElementById("dey1404-root"))return;
 
 const font=document.createElement("link");
 font.rel="stylesheet";
@@ -16,42 +19,48 @@ style.innerHTML=`
 position:fixed;
 top:0;
 ${side}:0;
-width:240px;
-height:240px;
+width:260px;
+height:260px;
 overflow:hidden;
-pointer-events:none;
 z-index:9999999;
+pointer-events:${linkEnabled?"auto":"none"};
 }
 
 #dey1404-ribbon{
 position:absolute;
-top:80px;
-left:-260px;
-width:700px;
+top:95px;
+left:-420px;
+width:900px;
 background:#000;
 color:#fff;
 font-family:Vazirmatn,sans-serif;
 font-size:14px;
 text-align:center;
-padding:10px 0;
-letter-spacing:.3px;
+padding:12px 0;
+letter-spacing:.4px;
 transform:rotate(${side==="left"?"-45":"45"}deg);
 box-shadow:0 8px 20px rgba(0,0,0,.45);
-animation:deyEnter .8s ease;
+animation:enter .7s ease;
 
-mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
--webkit-mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+mask-image:linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+-webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 
-@keyframes deyEnter{
-from{opacity:0;transform:scale(.7) rotate(${side==="left"?"-45":"45"}deg);}
+@keyframes enter{
+from{opacity:0;transform:scale(.8) rotate(${side==="left"?"-45":"45"}deg);}
 to{opacity:1;transform:scale(1) rotate(${side==="left"?"-45":"45"}deg);}
 }
 `;
 document.head.appendChild(style);
 
-const root=document.createElement("div");
+const root=document.createElement(linkEnabled?"a":"div");
 root.id="dey1404-root";
+
+if(linkEnabled){
+root.href=linkUrl;
+root.target="_blank";
+root.style.textDecoration="none";
+}
 
 const ribbon=document.createElement("div");
 ribbon.id="dey1404-ribbon";
