@@ -1,18 +1,153 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="utf8">
-<title>تست روبان یادبود درگذشتگاه دی ۱۴۰۴</title>
+<title>روبان یادبود دی ۱۴۰۴</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Vazirmatn,sans-serif;
+background:#0b0b0b;
+color:#eee;
+line-height:1.9;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+}
+
+h1{
+font-weight:600;
+margin-bottom:10px;
+}
+
+.subtitle{
+opacity:.8;
+margin-bottom:40px;
+}
+
+.card{
+background:#141414;
+border-radius:14px;
+padding:25px;
+margin:30px 0;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.codebox{
+background:#000;
+border-radius:10px;
+padding:15px;
+font-size:13px;
+direction:ltr;
+color:#0f0;
+overflow:auto;
+}
+
+button{
+background:#fff;
+border:0;
+padding:8px 16px;
+border-radius:8px;
+cursor:pointer;
+font-family:Vazirmatn;
+margin-top:10px;
+}
+
+.preview{
+margin-top:40px;
+padding:40px;
+background:#111;
+border-radius:16px;
+position:relative;
+overflow:hidden;
+}
+
+.footer{
+margin-top:80px;
+opacity:.6;
+font-size:13px;
+text-align:center;
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>تست روبان یادبود درگذشتگاه دی ۱۴۰۴</h1>
+<div class="container">
+
+<h1>روبان یادبود دی ۱۴۰۴</h1>
+
+<div class="subtitle">
+با قلبی اندوهگین، تسلیت میگوییم به تمامی خانواده های داغدار  
+یاد همه جانباختگان این روزهای تلخ گرامی باد.
+</div>
+
+<div class="card">
+این پروژه یک روبان سوگ ساده و سبک است که میتوانید تنها با اضافه کردن یک اسکریپت به سایت خود، یاد این عزیزان را زنده نگه دارید.
+</div>
+
+<div class="card">
+<h3>کد سمت راست</h3>
+
+<div class="codebox" id="codeRight">
+&lt;script&gt;
+window.mourningRibbonSide="right";
+window.mourningRibbonText="به یاد درگذشتگان دی ۱۴۰۴";
+&lt;/script&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/gh/m4tinbeigi-official/dey1404@main/dey1404.js"&gt;&lt;/script&gt;
+</div>
+
+<button onclick="copy('codeRight')">کپی کد</button>
+</div>
+
+<div class="card">
+<h3>کد سمت چپ</h3>
+
+<div class="codebox" id="codeLeft">
+&lt;script&gt;
+window.mourningRibbonSide="left";
+window.mourningRibbonText="به یاد درگذشتگان دی ۱۴۰۴";
+&lt;/script&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/gh/m4tinbeigi-official/dey1404@main/dey1404.js"&gt;&lt;/script&gt;
+</div>
+
+<button onclick="copy('codeLeft')">کپی کد</button>
+</div>
+
+<h2>پیش نمایش زنده</h2>
+
+<div class="preview">
+این فقط یک صفحه تست است  
+روبان گوشه صفحه باید نمایش داده شود
+</div>
+
+<div class="footer">
+اگر حتی یک نفر با دیدن این روبان مکث کند و به یادشان بیفتد، این پروژه به هدفش رسیده است.
+</div>
+
+</div>
+
+<script>
+function copy(id){
+const el=document.getElementById(id);
+navigator.clipboard.writeText(el.innerText);
+alert("کپی شد");
+}
+</script>
 
 <script>
 window.mourningRibbonSide="right";
 window.mourningRibbonText="به یاد درگذشتگان دی ۱۴۰۴";
 </script>
-
 
 <script src="https://cdn.jsdelivr.net/gh/m4tinbeigi-official/dey1404@main/dey1404.js"></script>
 
