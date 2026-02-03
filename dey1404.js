@@ -1,64 +1,60 @@
-(function () {
+(function(){
 
-  const side = window.mourningRibbonSide || "right";
-  const text = window.mourningRibbonText || "به یاد درگذشتگان دی ۱۴۰۴";
+const side = window.mourningRibbonSide || "right";
+const text = window.mourningRibbonText || "به یاد درگذشتگان دی ۱۴۰۴";
 
-  if (document.getElementById("mourning-ribbon")) return;
+if(document.getElementById("dey1404-root")) return;
 
-  const font = document.createElement("link");
-  font.rel = "stylesheet";
-  font.href = "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap";
-  document.head.appendChild(font);
+const font=document.createElement("link");
+font.rel="stylesheet";
+font.href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap";
+document.head.appendChild(font);
 
-  const css = `
-#mourn-root{
+const style=document.createElement("style");
+style.innerHTML=`
+#dey1404-root{
 position:fixed;
 top:0;
 ${side}:0;
-width:180px;
-height:180px;
-z-index:999999;
+width:220px;
+height:220px;
+overflow:hidden;
 pointer-events:none;
+z-index:9999999;
 }
 
-#mourn-inner{
+#dey1404-ribbon{
 position:absolute;
-top:42px;
-left:-45px;
-width:260px;
-background:black;
-color:white;
-text-align:center;
+top:70px;
+left:-220px;
+width:600px;
+background:#000;
+color:#fff;
 font-family:Vazirmatn,sans-serif;
 font-size:14px;
-padding:8px 0;
+text-align:center;
+padding:10px 0;
+letter-spacing:.3px;
 transform:rotate(${side==="left"?"-45":"45"}deg);
-box-shadow:0 6px 14px rgba(0,0,0,.4);
-animation:enter .8s ease;
+box-shadow:0 8px 20px rgba(0,0,0,.5);
+animation:deyEnter .8s ease;
 }
 
-@keyframes enter{
+@keyframes deyEnter{
 from{opacity:0;transform:scale(.7) rotate(${side==="left"?"-45":"45"}deg);}
 to{opacity:1;transform:scale(1) rotate(${side==="left"?"-45":"45"}deg);}
 }
 `;
+document.head.appendChild(style);
 
-  const style = document.createElement("style");
-  style.innerHTML = css;
-  document.head.appendChild(style);
+const root=document.createElement("div");
+root.id="dey1404-root";
 
-  const root = document.createElement("div");
-  root.id = "mourning-ribbon";
+const ribbon=document.createElement("div");
+ribbon.id="dey1404-ribbon";
+ribbon.innerText=text;
 
-  const box = document.createElement("div");
-  box.id = "mourn-root";
-
-  const inner = document.createElement("div");
-  inner.id = "mourn-inner";
-  inner.innerText = text;
-
-  box.appendChild(inner);
-  root.appendChild(box);
-  document.body.appendChild(root);
+root.appendChild(ribbon);
+document.body.appendChild(root);
 
 })();
