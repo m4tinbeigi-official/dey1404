@@ -16,8 +16,8 @@ style.innerHTML=`
 position:fixed;
 top:0;
 ${side}:0;
-width:220px;
-height:220px;
+width:240px;
+height:240px;
 overflow:hidden;
 pointer-events:none;
 z-index:9999999;
@@ -25,9 +25,9 @@ z-index:9999999;
 
 #dey1404-ribbon{
 position:absolute;
-top:70px;
-left:-220px;
-width:600px;
+top:80px;
+left:-260px;
+width:700px;
 background:#000;
 color:#fff;
 font-family:Vazirmatn,sans-serif;
@@ -36,8 +36,11 @@ text-align:center;
 padding:10px 0;
 letter-spacing:.3px;
 transform:rotate(${side==="left"?"-45":"45"}deg);
-box-shadow:0 8px 20px rgba(0,0,0,.5);
+box-shadow:0 8px 20px rgba(0,0,0,.45);
 animation:deyEnter .8s ease;
+
+mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+-webkit-mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
 @keyframes deyEnter{
